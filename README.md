@@ -1,4 +1,5 @@
 # git-mini-exercise-7
+https://github.com/bar19072003/git-mini-exercise-7.git
 1. Synchronous code executes first, logging 1 and 4. The resolved Promise's callback is pushed to the microtask queue, which has higher priority. Thus, 3 is logged next. Finally, the setTimeout callback waiting in the macrotask queue executes, logging 2.
 2. The outer setTimeout enters the macrotask queue. The outer Promise enters the microtask queue and executes first, logging 2. Inside it, the inner setTimeout is queued as a macrotask, and the inner Promise is queued as a microtask. The Event Loop always empties the microtask queue first, logging 4. Finally, it processes the macrotask queue in order, logging 1 and then 3.
 3. Because await is used at the top level of the module, it pauses the entire module's execution until each Promise resolves. Thus, the code executes strictly in sequential order, processing the microtasks before moving to the subsequent lines.
